@@ -9,3 +9,4 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 	id: 'mapbox.streets',
 	accessToken: mapBoxToken
 }).addTo(usMap);
+
