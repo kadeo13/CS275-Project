@@ -17,6 +17,19 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 }).addTo(usMap);
 
 var geojson;
+var info = L.control();
+
+info.onAdd = function (map) {
+	this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+	this.update();
+	return this._div;
+};
+
+info.update = function (table) {
+	this._div.innerHTML = table;
+};
+
+info.addTo(usMap);
 
 //Border highlighting 
 function highlightFeature(e) {
@@ -42,7 +55,7 @@ function resetHighlight(e) {
 function displayStateData(e) {
 	var layer = e.target;
 	var stateData = getStateData(layer.feature.properties.name)
-	$("#stateinfo").html(stateData);
+	info.update(stateData)
 }
 
 function getStateData(name) {
