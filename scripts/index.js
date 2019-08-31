@@ -39,15 +39,21 @@ function resetHighlight(e) {
 	geojson.resetStyle(e.target);
 }
 
-function zoomToFeature(e) {
-	usMap.fitBounds(e.target.getBounds());
+function displayStateData(e) {
+	var layer = e.target;
+	var stateData = getStateData(layer.feature.properties.name)
+	$("#stateinfo").html(stateData);
+}
+
+function getStateData(name) {
+
 }
 
 function onEachFeature(feature, layer) {
 	layer.on({
 		mouseover: highlightFeature,
 		mouseout: resetHighlight,
-		click: zoomToFeature
+		click: displayStateData
 	});
 }
 
