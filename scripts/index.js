@@ -40,7 +40,7 @@ function resetHighlight(e) {
 }
 
 function zoomToFeature(e) {
-	map.fitBounds(e.target.getBounds());
+	usMap.fitBounds(e.target.getBounds());
 }
 
 function onEachFeature(feature, layer) {
